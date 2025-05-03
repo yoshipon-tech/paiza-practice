@@ -1,3 +1,4 @@
+export{}
 function N(input) {
   process.stdin.resume();
   process.stdin.setEncoding("utf8");
