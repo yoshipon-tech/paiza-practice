@@ -174,11 +174,194 @@ function calc4() {
     const array = lines[1].split(" ").map(Number);
     const loop = lines[2].split(" ").map(Number);
     let pos = 0;
-    const rows = loop.map(len => {
-      const row = array.slice(pos, pos + len).join(' ');
+    const rows = loop.map((len) => {
+      const row = array.slice(pos, pos + len).join(" ");
       pos += len;
       return row;
-    })
-    console.log(rows.join('\n'));
+    });
+    console.log(rows.join("\n"));
+  });
+}
+
+function fix() {
+  process.stdin.resume();
+  process.stdin.setEncoding("utf8");
+  // 自分の得意な言語で
+  // Let's チャレンジ！！
+  const lines: string[] = [];
+  const reader = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  reader.on("line", (line) => {
+    lines.push(line);
+  });
+  reader.on("close", () => {
+    const [number, fix] = lines[0].split(" ").map(Number);
+    console.log(number.toFixed(fix));
+  });
+}
+
+function fixLoop() {
+  process.stdin.resume();
+  process.stdin.setEncoding("utf8");
+  // 自分の得意な言語で
+  // Let's チャレンジ！！
+  const lines: string[] = [];
+  const reader = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  reader.on("line", (line) => {
+    lines.push(line);
+  });
+  reader.on("close", () => {
+    const number = Number(lines[0]);
+    const output = Array.from({ length: number }, (_, i) => {
+      const [number, fix] = lines[i + 1].split(" ").map(Number);
+      console.log(number.toFixed(fix));
+    });
+  });
+}
+
+function space() {
+  process.stdin.resume();
+  process.stdin.setEncoding("utf8");
+  // 自分の得意な言語で
+  // Let's チャレンジ！！
+  const lines: string[] = [];
+  const reader = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  reader.on("line", (line) => {
+    lines.push(line);
+  });
+  reader.on("close", () => {
+    const [number, digit] = lines[0].split(" ").map(Number);
+    const output = Array.from({ length: number }, (_, i) => {
+      console.log(lines[i + 1].padStart(digit, " "));
+    });
+  });
+}
+function format() {
+  process.stdin.resume();
+  process.stdin.setEncoding("utf8");
+  // 自分の得意な言語で
+  // Let's チャレンジ！！
+  const lines: string[] = [];
+  const reader = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  reader.on("line", (line) => {
+    lines.push(line);
+  });
+  reader.on("close", () => {
+    const [number, left, right] = lines[0].split(" ");
+    const output = Array.from(
+      { length: Number(number) },
+      () => `(${left}, ${right})`
+    ).join(", ");
+    console.log(output);
+  });
+}
+
+function outputMultiplicationTable() {
+  process.stdin.resume();
+  process.stdin.setEncoding("utf8");
+  // 自分の得意な言語で
+  // Let's チャレンジ！！
+  const lines: string[] = [];
+  const reader = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  reader.on("line", (line) => {
+    lines.push(line);
+  });
+  reader.on("close", () => {
+    const rows = Array.from({ length: 9 }, (_, r) =>
+      // ここで列・行の掛け算を実施してjoin結合
+      // Array.fromが自動でインデックスにインクリメントしているのは知らなかった便利
+      Array.from({ length: 9 }, (_, c) =>
+        ((r + 1) * (c + 1)).toString().padStart(2, " ")
+      ).join(" | ")
+    );
+
+    //桁埋めしているので下記で十分
+    const separator = "=".repeat(rows[0].length);
+
+    const withLines = rows.flatMap(
+      (row, i) => (i === rows.length - 1 ? [row] : [row, separator]) // 最終行の後ろだけ挿入しない
+    );
+    console.log(withLines);
+  });
+}
+
+function pairRow() {
+  process.stdin.resume();
+  process.stdin.setEncoding("utf8");
+  // 自分の得意な言語で
+  // Let's チャレンジ！！
+  const lines: string[] = [];
+  const reader = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  reader.on("line", (line) => {
+    lines.push(line);
+  });
+  reader.on("close", () => {
+    const [row, column, left, right] = lines[0].split(" ");
+    const rows = Array.from({ length: Number(row) }, () =>
+      // ここで列・行の掛け算を実施してjoin結合
+      // Array.fromが自動でインデックスにインクリメントしているのは知らなかった便利
+      Array.from({ length: Number(column) }, () => `(${left}, ${right})`).join(
+        " | "
+      )
+    );
+
+    //桁埋めしているので下記で十分
+    const separator = "=".repeat(rows[0].length);
+
+    const withLines = rows.flatMap(
+      (row, i) => (i === rows.length - 1 ? [row] : [row, separator]) // 最終行の後ろだけ挿入しない
+    );
+    console.log(withLines.join("\n"));
+  });
+}
+
+function pairRow2() {
+  process.stdin.resume();
+  process.stdin.setEncoding("utf8");
+  // 自分の得意な言語で
+  // Let's チャレンジ！！
+  const lines: string[] = [];
+  const reader = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  reader.on("line", (line) => {
+    lines.push(line);
+  });
+  reader.on("close", () => {
+    const [row, column, left, right] = lines[0].split(" ");
+    const rows = Array.from({ length: Number(row) }, () =>
+      // ここで列・行の掛け算を実施してjoin結合
+      // Array.fromが自動でインデックスにインクリメントしているのは知らなかった便利
+      Array.from(
+        { length: Number(column) },
+        () => `(${left.padStart(9, " ")}, ${right.padStart(9, " ")})`
+      ).join(" | ")
+    );
+
+    //桁埋めしているので下記で十分
+    const separator = "=".repeat(rows[0].length);
+
+    const withLines = rows.flatMap(
+      (row, i) => (i === rows.length - 1 ? [row] : [row, separator]) // 最終行の後ろだけ挿入しない
+    );
+    console.log(withLines.join("\n"));
   });
 }

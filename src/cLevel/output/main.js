@@ -165,10 +165,170 @@ function calc4() {
         var loop = lines[2].split(" ").map(Number);
         var pos = 0;
         var rows = loop.map(function (len) {
-            var row = array.slice(pos, pos + len).join(' ');
+            var row = array.slice(pos, pos + len).join(" ");
             pos += len;
             return row;
         });
-        console.log(rows.join('\n'));
+        console.log(rows.join("\n"));
+    });
+}
+function fix() {
+    process.stdin.resume();
+    process.stdin.setEncoding("utf8");
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    var lines = [];
+    var reader = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    reader.on("line", function (line) {
+        lines.push(line);
+    });
+    reader.on("close", function () {
+        var _a = lines[0].split(" ").map(Number), number = _a[0], fix = _a[1];
+        console.log(number.toFixed(fix));
+    });
+}
+function fixLoop() {
+    process.stdin.resume();
+    process.stdin.setEncoding("utf8");
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    var lines = [];
+    var reader = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    reader.on("line", function (line) {
+        lines.push(line);
+    });
+    reader.on("close", function () {
+        var number = Number(lines[0]);
+        var output = Array.from({ length: number }, function (_, i) {
+            var _a = lines[i + 1].split(" ").map(Number), number = _a[0], fix = _a[1];
+            console.log(number.toFixed(fix));
+        });
+    });
+}
+function space() {
+    process.stdin.resume();
+    process.stdin.setEncoding("utf8");
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    var lines = [];
+    var reader = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    reader.on("line", function (line) {
+        lines.push(line);
+    });
+    reader.on("close", function () {
+        var _a = lines[0].split(" ").map(Number), number = _a[0], digit = _a[1];
+        var output = Array.from({ length: number }, function (_, i) {
+            console.log(lines[i + 1].padStart(digit, " "));
+        });
+    });
+}
+function format() {
+    process.stdin.resume();
+    process.stdin.setEncoding("utf8");
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    var lines = [];
+    var reader = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    reader.on("line", function (line) {
+        lines.push(line);
+    });
+    reader.on("close", function () {
+        var _a = lines[0].split(" "), number = _a[0], left = _a[1], right = _a[2];
+        var output = Array.from({ length: Number(number) }, function () { return "(".concat(left, ", ").concat(right, ")"); }).join(", ");
+        console.log(output);
+    });
+}
+function outputMultiplicationTable() {
+    process.stdin.resume();
+    process.stdin.setEncoding("utf8");
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    var lines = [];
+    var reader = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    reader.on("line", function (line) {
+        lines.push(line);
+    });
+    reader.on("close", function () {
+        var rows = Array.from({ length: 9 }, function (_, r) {
+            // ここで列・行の掛け算を実施してjoin結合
+            // Array.fromが自動でインデックスにインクリメントしているのは知らなかった便利
+            return Array.from({ length: 9 }, function (_, c) {
+                return ((r + 1) * (c + 1)).toString().padStart(2, " ");
+            }).join(" | ");
+        });
+        //桁埋めしているので下記で十分
+        var separator = "=".repeat(rows[0].length);
+        var withLines = rows.flatMap(function (row, i) { return (i === rows.length - 1 ? [row] : [row, separator]); } // 最終行の後ろだけ挿入しない
+        );
+        console.log(withLines);
+    });
+}
+function pairRow() {
+    process.stdin.resume();
+    process.stdin.setEncoding("utf8");
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    var lines = [];
+    var reader = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    reader.on("line", function (line) {
+        lines.push(line);
+    });
+    reader.on("close", function () {
+        var _a = lines[0].split(" "), row = _a[0], column = _a[1], left = _a[2], right = _a[3];
+        var rows = Array.from({ length: Number(row) }, function () {
+            // ここで列・行の掛け算を実施してjoin結合
+            // Array.fromが自動でインデックスにインクリメントしているのは知らなかった便利
+            return Array.from({ length: Number(column) }, function () { return "(".concat(left, ", ").concat(right, ")"); }).join(" | ");
+        });
+        //桁埋めしているので下記で十分
+        var separator = "=".repeat(rows[0].length);
+        var withLines = rows.flatMap(function (row, i) { return (i === rows.length - 1 ? [row] : [row, separator]); } // 最終行の後ろだけ挿入しない
+        );
+        console.log(withLines.join("\n"));
+    });
+}
+function pairRow2() {
+    process.stdin.resume();
+    process.stdin.setEncoding("utf8");
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    var lines = [];
+    var reader = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    reader.on("line", function (line) {
+        lines.push(line);
+    });
+    reader.on("close", function () {
+        var _a = lines[0].split(" "), row = _a[0], column = _a[1], left = _a[2], right = _a[3];
+        var rows = Array.from({ length: Number(row) }, function () {
+            // ここで列・行の掛け算を実施してjoin結合
+            // Array.fromが自動でインデックスにインクリメントしているのは知らなかった便利
+            return Array.from({ length: Number(column) }, function () { return "(".concat(left.padStart(9, " "), ", ").concat(right.padStart(9, " "), ")"); }).join(" | ");
+        });
+        //桁埋めしているので下記で十分
+        var separator = "=".repeat(rows[0].length);
+        var withLines = rows.flatMap(function (row, i) { return (i === rows.length - 1 ? [row] : [row, separator]); } // 最終行の後ろだけ挿入しない
+        );
+        console.log(withLines.join("\n"));
     });
 }
