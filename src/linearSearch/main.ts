@@ -120,15 +120,8 @@ function add() {
     const number = Number(lines[0]);
     const answer = lines
       .slice(1, number + 1)
-      .filter((line) => {
-        Number(line) >= 5;
-      })
-      .map((line) => {
-        let answer = 0;
-        answer += Number(line);
-        return answer;
-      })
-      .join();
+      .filter((line) => Number(line) >= 5)
+      .reduce((sum, i) => sum + Number(i), 0);
     console.log(answer);
   });
 }
