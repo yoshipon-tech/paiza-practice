@@ -47,3 +47,22 @@ function add2() {
         console.log(answer);
     });
 }
+function cutString() {
+    process.stdin.resume();
+    process.stdin.setEncoding("utf8");
+    // 自分の得意な言語で
+    // Let's チャレンジ！！
+    var lines = [];
+    var reader = require("readline").createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    reader.on("line", function (line) {
+        lines.push(line);
+    });
+    reader.on("close", function () {
+        var _a = lines[0].split(" ").map(Number), first = _a[0], last = _a[1];
+        var answer = lines[1].substring(first - 1, last);
+        console.log(answer);
+    });
+}

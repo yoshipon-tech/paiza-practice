@@ -48,3 +48,23 @@ function add2() {
     console.log(answer);
   });
 }
+
+function cutString() {
+  process.stdin.resume();
+  process.stdin.setEncoding("utf8");
+  // 自分の得意な言語で
+  // Let's チャレンジ！！
+  var lines: string[] = [];
+  var reader = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  reader.on("line", (line) => {
+    lines.push(line);
+  });
+  reader.on("close", () => {
+    const [first, last] = lines[0].split(" ").map(Number);
+    const answer = lines[1].substring(first - 1, last);
+    console.log(answer);
+  });
+}
